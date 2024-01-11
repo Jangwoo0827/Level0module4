@@ -5,8 +5,8 @@ tail will go. The problem is, the picture keeps disappearing!
 
 def setup():
     size(800, 600)
-    
     global donkey
+    
     donkey = loadImage('donkey.jpg')
     donkey.resize(width, height)
     
@@ -17,7 +17,7 @@ def setup():
     x = None
     y = None
     noStroke()
-    
+
 def draw():
     global x
     global y
@@ -48,19 +48,28 @@ def draw():
     # and mouseY location. For example,
     # image(tail, mouseX, mouseY)
 
-    image(tail, mouseX, mouseY)
+
+    if x == None:
+        a = 1
+    
     # 7. Now, adjust your code so the tail sticks when you click the
     # mouse (this means it will no longer move when the mouse moves)
-    if mousePressed:
-        def setup():
+    
+    if a == 1:
+        image(tail, mouseX, mouseY)
+        if mousePressed:
+            background(donkey)
             image(tail, mouseX, mouseY)
-                                                                                   #I stopped here
+            p = 6
+            x = 0
+            
+
     # Hint: you will need to use the mousePressed variable and set the
     # x and y variables declared in setup()
         
     # 8. When the tail has been pinned, write code to check if the
     # tail was pinned inside the target bounding box.
-    
+
     # 9. Show the donkey so the user knows where they pinned the tail.
     
     
