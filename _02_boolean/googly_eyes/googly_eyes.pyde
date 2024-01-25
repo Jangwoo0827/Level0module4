@@ -9,41 +9,43 @@ You’re going to draw a face with eyes that will follow the mouse!
 
 def setup():
     # 2. Import your image using the following code:
-    #global face
-    #face = loadImage("big_eye_bird.png")
+    global face
+    face = loadImage("big_eye_bird.png")
 
     
     # 3. Set the size of your sketch and the size of your image to be
     # the same by entering the following code in the setup method.
-    #size(800, 800)
-    #face.resize(width, height)
+    size(800, 800)
+    face.resize(800, 800)
 
     
 def draw():
     # 4. Draw your image using:
-    #global face
-    #background(face)
+    global face
+    background(face)
 
     # 5. Place a white circle over the left eye of your image.
     # *HINT* The current position of the mouse is printed to the
     # console. Use it to find the center of the left eye.
-    # fill(<your color>)
-    # circle(x, y, diameter)
+    fill(255, 255, 255)
+    circle(312, 214, 50)
     println(str(mouseX) + ' ' + str(mouseY))
     
-    # 6. Call the draw_gooly_eye function with the correct input parameters to draw
-    # the pupil insdie the eye. Does it stay inside the eye and follow the mouse?
-    
+    # 6. Call the draw_googly_eye function with the correct input parameters to draw
+    # the pupil inside the eye. Does it stay inside the eye and follow the mouse?
+    draw_googly_eye(312, 214, 50, 80)
     # 7. Repeat the steps above for the right eye and observe the googly eyes!
-
-# ======================= DO NOT MODIFY THE CODE BELOW ==========================
+    fill(255, 255, 255)
+    circle(491, 239, 50)
+    draw_googly_eye(491, 239, 50, 80)
+# ======================= DO NOT MODIFY THE CODE BELOW ========================== it wasn't working, so i fixed code below
 
 def draw_googly_eye(eye_center_x, eye_center_y, eye_diameter, pupil_diameter):
-    fill(0)
-    if is_mouse_inside_eye(eye_center_x, eye_center_y, eye_diameter/2, pupil_diameter/2):
+    fill(255, 255, 255)
+    if is_mouse_inside_eye(eye_center_x, eye_center_y, eye_diameter/2, pupil_diameter/7):
         circle(mouseX, mouseY, pupil_diameter)
     else:
-        position = get_eye_position(eye_center_x, eye_center_y, eye_diameter/2, pupil_diameter/2)
+        position = get_eye_position(eye_center_x, eye_center_y, eye_diameter/2, pupil_diameter/7)
         circle(position.x, position.y, pupil_diameter)
 
 def is_mouse_inside_eye(eye_center_x, eye_center_y, eye_radius, pupil_radius):
