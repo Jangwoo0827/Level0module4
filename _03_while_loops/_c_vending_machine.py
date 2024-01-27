@@ -55,7 +55,6 @@ if __name__ == '__main__':
         # TODO) If no money was spent, tell the user how much money they still
         #  have and exit the while loop
         if money_spent == 0:
-            messagebox.showinfo(title=None, message="You have $3.00 left.")
             break
         # TODO) Otherwise, subtract the money spent from the amount of money
         #  you still have (money_in_dollars)
